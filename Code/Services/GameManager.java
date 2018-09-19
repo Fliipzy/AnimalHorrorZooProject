@@ -53,13 +53,16 @@ public class GameManager
 
         //Check to see if predator is in reach of the prey
         CheckDistance();
+        
+        if (currentGameState.equals(GameState.RUNNING))
+        {
+            map.ChangeCharacterPosition(Character.RABBIT, map.GetRandomNeighbourCoordinate(map.GetRabbitPos()));
 
-        map.ChangeCharacterPosition(Character.RABBIT, map.GetRandomNeighbourCoordinate(map.GetRabbitPos()));
+            //Print out the position of the rabbit
+            System.out.println(String.format("I am the rabbit, I'm now standing on square %s", map.GetRabbitPos().toString()));
 
-        //Print out the position of the rabbit
-        System.out.println(String.format("I am the rabbit, I'm now standing on square %s", map.GetRabbitPos().toString()));
-
-        CheckDistance();   
+            CheckDistance();   
+        } 
     }
 
 
